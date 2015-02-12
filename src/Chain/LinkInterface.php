@@ -8,9 +8,17 @@
 namespace Jul\Chain;
 
 /**
- * Chain
+ * Link
+ *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class Chain
+interface LinkInterface
 {
+    /**
+     * Processes the input and returns the resulting output.
+     *
+     * @param I_O_Interface $I_O
+     * @return I_O_Interface
+     */
+    public function exec(I_O_Interface $I_O);
 }
