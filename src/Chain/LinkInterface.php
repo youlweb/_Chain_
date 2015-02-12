@@ -20,5 +20,5 @@ interface LinkInterface
      * @param I_O_Interface $I_O
      * @return I_O_Interface
      */
-    public function exec(I_O_Interface $I_O);
+    public static function exec(I_O_Interface $I_O);
 }

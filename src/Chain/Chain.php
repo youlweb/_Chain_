@@ -9,8 +9,23 @@ namespace Jul\Chain;
 
 /**
  * Chain
+ *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 class Chain
 {
+    private $_links;
+
+    public function __construct()
+    {
+        $this->_links = func_get_args();
+    }
+
+    public function getOutput(I_O_Interface $I_O)
+    {
+        foreach ($this->_links as $link) {
+            $link::exec($I_O);
+        }
+        return $I_O->I(0);
+    }
 }

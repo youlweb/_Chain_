@@ -8,19 +8,16 @@
 namespace Jul\Chain;
 
 /**
- * Example with a division.
+ * Example with square.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class Example implements LinkInterface
+class Square implements LinkInterface
 {
-    const NUMERATOR = 0;
-    const DENOMINATOR = 1;
-
     /** {@inheritDoc} */
-    public function exec(I_O_Interface $I_O)
+    public static function exec(I_O_Interface $I_O)
     {
-        $result = $I_O->I(self::NUMERATOR) / $I_O->I(self::DENOMINATOR);
+        $result = pow($I_O->I(), 2);
 
         return $I_O->O($result);
     }
