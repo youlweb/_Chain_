@@ -22,7 +22,10 @@ interface LinkInterface
      * Performs an operation on a visiting I/O object.
      *
      * @param I_O $I_O
+     * @param I_O $I_O... As many as you want.
      * @return I_O
      */
     public function exec(I_O $I_O);
+
+    public function getTypes();
 }

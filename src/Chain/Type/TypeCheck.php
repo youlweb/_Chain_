@@ -5,15 +5,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain;
-
-use Jul\Chain\Exception\UnknownTypeException;
+namespace Jul\Chain\Type;
 
 /**
- * Type check
+ * Enforce type safety between links.
  *
- * Chain uses predefined type constants for primitive types,
- * and FQCN strings to represent objects.
+ * Chain uses type constants for primitive types, and FQCN strings to represent
+ * objects. Remember that closures are cast as 'Closure' objects in PHP.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
@@ -24,7 +22,7 @@ class TypeCheck implements Type
      *
      * @var integer[]
      */
-    public static $PHP = [
+    public static $PHP_LITERAL_TO_CONSTANT = [
         'array' => self::MULTI,
         'boolean' => self::BOOL,
         'double' => self::NUMBER,
@@ -34,11 +32,11 @@ class TypeCheck implements Type
         'string' => self::STRING
     ];
 
-    public static $LITERAL = [
+    public static $CONSTANT_TO_PHP_LITERAL = [
         self::BOOL => 'boolean',
         self::MULTI => 'array',
         self::NULL => 'NULL',
-        self::NUMBER => 'number',
+        self::NUMBER => 'double',
         self::RESOURCE => 'resource',
         self::STRING => 'string'
     ];
@@ -64,7 +62,7 @@ class TypeCheck implements Type
         if (is_string($type)) {
             return class_exists($type);
         }
-        return isset(self::$LITERAL[$type]);
+        return isset(self::$CONSTANT_TO_PHP_LITERAL[$type]);
     }
 
     /** {@inheritDoc} */
@@ -76,7 +74,7 @@ class TypeCheck implements Type
         if (is_string($type)) {
             return $type;
         }
-        return self::$LITERAL[$type];
+        return self::$CONSTANT_TO_PHP_LITERAL[$type];
     }
 
     /** {@inheritDoc} */
@@ -85,6 +83,6 @@ class TypeCheck implements Type
         if (is_object($value)) {
             return get_class($value);
         }
-        return self::$PHP[gettype($value)];
+        return self::$PHP_LITERAL_TO_CONSTANT[gettype($value)];
     }
 }

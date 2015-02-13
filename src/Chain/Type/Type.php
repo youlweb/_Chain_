@@ -5,15 +5,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain;
-
-use Jul\Chain\Exception\TypeException;
+namespace Jul\Chain\Type;
 
 /**
- * Type
+ * Enforce type safety between links.
  *
- * Chain uses predefined type constants for primitive types,
- * and FQCN strings to represent objects.
+ * Chain uses type constants for primitive types, and FQCN strings to represent
+ * objects. Remember that closures are cast as 'Closure' objects in PHP.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
@@ -50,6 +48,8 @@ interface Type
 
     /**
      * Returns a type constant or the FQCN.
+     *
+     * Note that closures are cast as 'Closure' objects in PHP.
      *
      * @param mixed $value Primitive or object to evaluate.
      * @return int|string Type constant or FQCN.

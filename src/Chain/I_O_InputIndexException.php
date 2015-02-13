@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain\Exception;
+namespace Jul\Chain;
 
 use Exception;
 
@@ -16,7 +16,7 @@ use Exception;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class I_O_InputIndexException extends Exception implements I_O_ExceptionInterface
+class I_O_InputIndexException extends Exception implements I_O_Exception
 {
     /**
      * @param integer $index
