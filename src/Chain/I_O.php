@@ -7,52 +7,34 @@
  */
 namespace Jul\Chain;
 
-use Jul\Chain\Exception\I_O_InputIndexException;
+use Jul\Chain\Exception\I_O_ExceptionInterface;
 
 /**
- * {@inheritDoc}
+ * Input/Output
+ *
+ * The state of this visitor object is altered by each link it traverses.
+ *
+ * @author Julien Tord <youlweb@hotmail.com>
  */
-class I_O implements I_O_Interface
+interface I_O
 {
     /**
-     * @var mixed[]
+     * Successively returns each internal value as an input argument.
+     *
+     * @param integer $type A type constant.
+     * @param bool $optional
+     * @return mixed An internal state value.
+     * @throws I_O_ExceptionInterface If a mandatory argument is missing,
+     * or in case of a type mismatch.
      */
-    private $_values;
+    public function I_($type, $optional = false);
 
     /**
-     * @param mixed $initial_value
-     * @param mixed $initial_value,... Unlimited number of initial values.
+     * Updates the internal values and returns itself.
+     *
+     * @param mixed $value
+     * @param mixed $value,... More output values.
+     * @return self
      */
-    public function __construct($initial_value)
-    {
-        $this->_values = func_get_args();
-    }
-
-    /** {@inheritDoc} */
-    public function I_($index = 0)
-    {
-        if (!isset($this->_values[$index])) {
-            throw new I_O_InputIndexException($index);
-        }
-        return $this->_values[$index];
-    }
-
-    /** {@inheritDoc} */
-    public function _O($output)
-    {
-        $this->_values = func_get_args();
-        return $this;
-    }
-
-    /** {@inheritDoc} */
-    public function types()
-    {
-        return array_map(function ($value) {
-            if (is_object($value)) {
-                return get_class($value);
-            }
-            return Type::$PHP_TYPES[gettype($value)];
-
-        }, $this->_values);
-    }
+    public function _O($value);
 }

@@ -16,7 +16,7 @@ use Exception;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class I_O_InputIndexException extends Exception
+class I_O_InputIndexException extends Exception implements I_O_ExceptionInterface
 {
     /**
      * @param integer $index

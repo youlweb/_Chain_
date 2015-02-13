@@ -8,10 +8,10 @@
 namespace Jul\Chain\Exception;
 
 /**
- * Link exception
+ * Type exception
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-interface LinkExceptionInterface
+interface TypeException
 {
 }

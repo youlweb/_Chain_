@@ -8,7 +8,7 @@
 namespace Jul\Chain;
 
 /**
- * Example with square.
+ * Square
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
@@ -17,14 +17,8 @@ class Square implements LinkInterface
     /** {@inheritDoc} */
     public function exec(I_O_Interface $I_O)
     {
-        $result = pow($I_O->I_(), 2);
-
-        return $I_O->_O($result);
-    }
-
-    /** {@inheritDoc} */
-    public function types()
-    {
-        return [Type::NUMERIC];
+        $value = $I_O->I_(Type::FLOAT);
+        $power = $I_O->I_(Type::FLOAT, true);
+        return $I_O->_O(pow($value, $power !== null ? $power : 2));
     }
 }

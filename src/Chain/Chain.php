@@ -7,8 +7,6 @@
  */
 namespace Jul\Chain;
 
-use Jul\Chain\Exception\LinkTypeException;
-
 /**
  * Chain
  *
@@ -25,9 +23,6 @@ class Chain implements ChainInterface
     public function exec(I_O_Interface $I_O)
     {
         foreach ($this->_links as $link) {
-            if ($I_O->types() !== $link->types()) {
-                throw new LinkTypeException($link);
-            }
             $link->exec($I_O);
         }
         return $I_O;
@@ -44,14 +39,5 @@ class Chain implements ChainInterface
     {
         $this->_links[] = $link;
         return $this;
-    }
-
-    /** {@inheritDoc} */
-    public function types()
-    {
-        if (!$this->_links) {
-            return [];
-        }
-        return $this->_links[0]->types();
     }
 }

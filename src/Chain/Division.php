@@ -8,26 +8,22 @@
 namespace Jul\Chain;
 
 /**
- * Example with a division.
+ * Division
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 class Division implements LinkInterface
 {
-    const NUMERATOR = 0;
-    const DENOMINATOR = 1;
-
     /** {@inheritDoc} */
-    public function exec(I_O_Interface $I_O)
+    public function exec(I_O $I_O)
     {
-        $result = $I_O->I_(self::NUMERATOR) / $I_O->I_(self::DENOMINATOR);
-
+        $numerator = $I_O->I_(Type::NUMBER);
+        $denominator = $I_O->I_(Type::NUMBER);
+        $precision = $I_O->I_(Type::NUMBER, true);
+        $result = $numerator / $denominator;
+        if (null !== $precision) {
+            $result = round($result, $precision);
+        }
         return $I_O->_O($result);
-    }
-
-    /** {@inheritDoc} */
-    public function types()
-    {
-        return [Type::NUMERIC, Type::NUMERIC];
     }
 }

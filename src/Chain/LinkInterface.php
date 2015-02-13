@@ -21,16 +21,8 @@ interface LinkInterface
     /**
      * Performs an operation on a visiting I/O object.
      *
-     * @param I_O_Interface $I_O
-     * @return I_O_Interface
-     * @throws LinkExceptionInterface
+     * @param I_O $I_O
+     * @return I_O
      */
-    public function exec(I_O_Interface $I_O);
-
-    /**
-     * Returns the expected types of all input arg.
-     *
-     * @return string[]
-     */
-    public function types();
+    public function exec(I_O $I_O);
 }
