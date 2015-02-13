@@ -15,10 +15,16 @@ namespace Jul\Chain;
 class Square implements LinkInterface
 {
     /** {@inheritDoc} */
-    public static function exec(I_O_Interface $I_O)
+    public function exec(I_O_Interface $I_O)
     {
-        $result = pow($I_O->I(), 2);
+        $result = pow($I_O->I_(), 2);
 
-        return $I_O->O($result);
+        return $I_O->_O($result);
+    }
+
+    /** {@inheritDoc} */
+    public function types()
+    {
+        return [Type::NUMERIC];
     }
 }

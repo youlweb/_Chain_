@@ -7,18 +7,30 @@
  */
 namespace Jul\Chain;
 
+use Jul\Chain\Exception\LinkExceptionInterface;
+
 /**
  * Link
+ *
+ * Updates a visiting I/O object via an operation.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 interface LinkInterface
 {
     /**
-     * Processes the input and returns the resulting output.
+     * Performs an operation on a visiting I/O object.
      *
      * @param I_O_Interface $I_O
      * @return I_O_Interface
+     * @throws LinkExceptionInterface
      */
-    public static function exec(I_O_Interface $I_O);
+    public function exec(I_O_Interface $I_O);
+
+    /**
+     * Returns the expected types of all input arg.
+     *
+     * @return string[]
+     */
+    public function types();
 }

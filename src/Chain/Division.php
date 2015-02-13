@@ -18,10 +18,16 @@ class Division implements LinkInterface
     const DENOMINATOR = 1;
 
     /** {@inheritDoc} */
-    public static function exec(I_O_Interface $I_O)
+    public function exec(I_O_Interface $I_O)
     {
-        $result = $I_O->I(self::NUMERATOR) / $I_O->I(self::DENOMINATOR);
+        $result = $I_O->I_(self::NUMERATOR) / $I_O->I_(self::DENOMINATOR);
 
-        return $I_O->O($result);
+        return $I_O->_O($result);
+    }
+
+    /** {@inheritDoc} */
+    public function types()
+    {
+        return [Type::NUMERIC, Type::NUMERIC];
     }
 }

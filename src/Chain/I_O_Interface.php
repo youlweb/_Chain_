@@ -7,29 +7,39 @@
  */
 namespace Jul\Chain;
 
+use Jul\Chain\Exception\I_O_ExceptionInterface;
+
 /**
- * IO
+ * Input/Output
+ *
+ * The state of this visitor object is altered by each link it traverses.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 interface I_O_Interface
 {
     /**
-     * I is a getter.
+     * Returns part of the internal state as an input argument.
      *
-     * It returns the value memorized at a given index.
-     * @param int $index
-     * @return mixed
+     * @param integer $index The index of the argument to retrieve.
+     * @return mixed An internal state value.
+     * @throws I_O_ExceptionInterface If no input is found at the given index.
      */
-    public function I($index = 0);
+    public function I_($index = 0);
 
     /**
-     * O is a setter.
+     * Updates the internal state and returns itself.
      *
-     * It memorizes a set of values and returns itself.
-     * @param mixed $output
-     * @param mixed $output,... unlimited number of output values.
+     * @param mixed $value
+     * @param mixed $value,... More output values.
      * @return self
      */
-    public function O($output);
+    public function _O($value);
+
+    /**
+     * Returns the types of all internal elements.
+     *
+     * @return string[]
+     */
+    public function types();
 }

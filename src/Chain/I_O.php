@@ -7,33 +7,52 @@
  */
 namespace Jul\Chain;
 
+use Jul\Chain\Exception\I_O_InputIndexException;
+
 /**
- * I_O
- *
- * @author Julien Tord <youlweb@hotmail.com>
+ * {@inheritDoc}
  */
 class I_O implements I_O_Interface
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     private $_values;
 
-    public function __construct()
+    /**
+     * @param mixed $initial_value
+     * @param mixed $initial_value,... Unlimited number of initial values.
+     */
+    public function __construct($initial_value)
     {
         $this->_values = func_get_args();
     }
 
     /** {@inheritDoc} */
-    public function I($index = 0)
+    public function I_($index = 0)
     {
+        if (!isset($this->_values[$index])) {
+            throw new I_O_InputIndexException($index);
+        }
         return $this->_values[$index];
     }
 
     /** {@inheritDoc} */
-    public function O($output)
+    public function _O($output)
     {
         $this->_values = func_get_args();
         return $this;
+    }
+
+    /** {@inheritDoc} */
+    public function types()
+    {
+        return array_map(function ($value) {
+            if (is_object($value)) {
+                return get_class($value);
+            }
+            return Type::$PHP_TYPES[gettype($value)];
+
+        }, $this->_values);
     }
 }
