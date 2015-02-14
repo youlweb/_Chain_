@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Chain ©2015 Julien Tord <youlweb@hotmail.com>
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * _Chain_ ©2015 Julien <youlweb@hotmail.com>
+ * Refer to the LICENSE file for the full copyright and license information.
+ * @package _chain_
  */
-namespace _Chain_;
 
+namespace _Chain_;
 use _Chain_\Exception\TypeException;
 
 /**
  * Enforce type safety between links.
  *
- * Chain uses type constants for primitive types, and FQCN strings to represent
- * objects. Remember that closures are cast as 'Closure' objects in PHP.
+ * _Chain_ uses type constants for primitive types, and FQCN strings to represent
+ * objects. Note that closures are cast as 'Closure' objects in PHP.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
