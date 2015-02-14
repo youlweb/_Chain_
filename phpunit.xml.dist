@@ -2,8 +2,8 @@
 
 <phpunit colors="true">
     <testsuites>
-        <testsuite name="Chain test suite">
-            <directory>src/Chain/Tests</directory>
+        <testsuite name="_Chain_ test suite">
+            <directory>src/_Chain_/Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

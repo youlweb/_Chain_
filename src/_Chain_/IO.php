@@ -5,11 +5,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain;
+namespace Jul\_Chain_;
 
-use Jul\Chain\Exception\I_O_InputIndexException;
-use Jul\Chain\Exception\I_O_InputTypeException;
-use Jul\Chain\Type\TypeCheck;
+use Jul\_Chain_\Exception\I_O_InputIndexException;
+use Jul\_Chain_\Exception\I_O_InputTypeException;
+use Jul\_Chain_\Type\TypeCheck;
 
 /**
  * Concrete Input/Output visitor.

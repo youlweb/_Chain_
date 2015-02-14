@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain\Exception;
+namespace Jul\_Chain_\Exception;
 
 /**
  * I/O exception interface.

@@ -5,9 +5,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain;
+namespace Jul\_Chain_;
 
-use Jul\Chain\Type\Type;
+use Jul\_Chain_\Type\Type;
 
 /**
  * Applies the AND operator to a couple of booleans.

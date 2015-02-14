@@ -1,8 +1,8 @@
 {
-  "name": "jul/chain",
-  "description": "A PHP framework made of connectible links.",
+  "name": "jul/_chain_",
+  "description": "_Chain_ is freedom.",
   "type": "library",
-  "homepage": "https://github.com/youlweb/Chain",
+  "homepage": "https://github.com/youlweb/_Chain_",
   "license": "MIT",
   "authors": [
     {

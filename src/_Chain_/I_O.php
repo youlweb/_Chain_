@@ -5,9 +5,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\Chain;
+namespace Jul\_Chain_;
 
-use Jul\Chain\Exception\I_O_Exception;
+use Jul\_Chain_\Exception\I_O_Exception;
 
 /**
  * Input/Output interface.
