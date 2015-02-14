@@ -7,8 +7,8 @@
  */
 namespace _Chain_\Exception;
 
+use _Chain_\TypeCheck;
 use Exception;
-use _Chain_\Type\TypeCheck;
 
 /**
  * An input argument of an unexpected type is requested.

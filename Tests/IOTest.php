@@ -7,8 +7,6 @@
  */
 namespace _Chain_;
 
-use _Chain_\Type\Type;
-
 /**
  * @author Julien Tord <youlweb@hotmail.com>
  */

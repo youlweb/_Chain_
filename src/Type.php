@@ -5,7 +5,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace _Chain_\Type;
+namespace _Chain_;
+
+use _Chain_\Exception\TypeException;
 
 /**
  * Enforce type safety between links.
@@ -38,6 +40,14 @@ interface Type
     public static function isCompatible($expected, $actual);
 
     /**
+     * Checks the validity of a type constant or FQCN.
+     *
+     * @param int|string $type Type constant or FQCN.
+     * @return bool
+     */
+    public static function isValid($type);
+
+    /**
      * Converts a type constant or FQCN to a literal type.
      *
      * @param int|string $type Type constant or FQCN.
@@ -55,12 +65,4 @@ interface Type
      * @return int|string Type constant or FQCN.
      */
     public static function typeOf($value);
-
-    /**
-     * Checks the validity of a type constant or FQCN.
-     *
-     * @param int|string $type Type constant or FQCN.
-     * @return bool
-     */
-    public static function isValid($type);
 }

@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace _Chain_\Type;
+namespace _Chain_;
 
 /**
  * @author Julien Tord <youlweb@hotmail.com>
@@ -21,7 +21,7 @@ class TypeCheckTest extends \PHPUnit_Framework_TestCase
         // Parent
         $this->assertTrue(TypeCheck::isCompatible('PHPUnit_Framework_TestCase', get_class($this)));
         // Interface
-        $this->assertTrue(TypeCheck::isCompatible('_Chain_\Type\Type', '_Chain_\Type\TypeCheck'));
+        $this->assertTrue(TypeCheck::isCompatible('_Chain_\Type', '_Chain_\TypeCheck'));
     }
 
     public function testIsCompatiblePrimitives()
@@ -46,7 +46,7 @@ class TypeCheckTest extends \PHPUnit_Framework_TestCase
 
     public function testLiteralThrowsExceptionIfUnknownType()
     {
-        $this->setExpectedException('_Chain_\Type\UnknownTypeException');
+        $this->setExpectedException('_Chain_\Exception\UnknownTypeException');
         TypeCheck::literal(100);
     }
 

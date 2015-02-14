@@ -9,7 +9,6 @@ namespace _Chain_;
 
 use _Chain_\Exception\I_O_InputIndexException;
 use _Chain_\Exception\I_O_InputTypeException;
-use _Chain_\Type\TypeCheck;
 
 /**
  * Concrete Input/Output visitor.

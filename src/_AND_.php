@@ -7,8 +7,6 @@
  */
 namespace _Chain_;
 
-use _Chain_\Type\Type;
-
 /**
  * Applies the AND operator to a couple of booleans.
  *
