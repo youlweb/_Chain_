@@ -5,13 +5,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\_Chain_\Exception;
+namespace _Chain_\Type;
 
 /**
- * I/O exception interface.
+ * Generic type exception.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-interface I_O_Exception
+interface TypeException
 {
 }

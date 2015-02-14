@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\_Chain_;
+namespace _Chain_;
 
 /**
  * A chain is a collection of links.
@@ -15,7 +15,7 @@ namespace Jul\_Chain_;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class ChainImp implements _Chain_
+class Chain implements _Chain_
 {
     /**
      * @var _Link_[]

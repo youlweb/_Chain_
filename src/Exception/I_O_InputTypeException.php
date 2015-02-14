@@ -5,10 +5,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\_Chain_\Exception;
+namespace _Chain_\Exception;
 
 use Exception;
-use Jul\_Chain_\Type\TypeCheck;
+use _Chain_\Type\TypeCheck;
 
 /**
  * An input argument of an unexpected type is requested.

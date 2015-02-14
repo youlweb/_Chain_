@@ -3,7 +3,7 @@
 <phpunit colors="true">
     <testsuites>
         <testsuite name="_Chain_ test suite">
-            <directory>src/_Chain_/Tests</directory>
+            <directory>src/Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

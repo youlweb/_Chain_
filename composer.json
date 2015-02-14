@@ -1,5 +1,5 @@
 {
-  "name": "jul/_chain_",
+  "name": "_chain_",
   "description": "_Chain_ is freedom.",
   "type": "library",
   "homepage": "https://github.com/youlweb/_Chain_",
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Jul\\": "src/"
+      "_Chain_\\": "src/"
     }
   },
   "require": {

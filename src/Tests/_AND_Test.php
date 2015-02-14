@@ -5,11 +5,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Jul\_Chain_\Tests;
+namespace _Chain_\Tests;
 
-use Jul\_Chain_\_AND_;
-use Jul\_Chain_\IO;
-use Jul\_Chain_\Type\Type;
+use _Chain_\_AND_;
+use _Chain_\IO;
+use _Chain_\Type\Type;
 
 /**
  * @author Julien Tord <youlweb@hotmail.com>
