@@ -13,10 +13,13 @@ use Jul\Chain\Type\Type;
  * Applies the AND operator to a couple of booleans.
  *
  * I/O contract
- * ---------------
- * Input    0 bool
- * Input    1 bool
- * Output   0 bool
+ * ------------
+ * <pre>
+ * I    bool
+ * I    bool
+ * /
+ * O    bool    Result of the AND operation
+ * </pre>
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
