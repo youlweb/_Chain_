@@ -23,10 +23,10 @@ use Jul\Chain\Type\Type;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class ANDGate implements Link
+class _AND_ implements _Link_
 {
     /** {@inheritDoc} */
-    public function exec(I_O $I_O)
+    public function run(I_O $I_O)
     {
         $AND = $I_O->I_(Type::BOOL)
             && $I_O->I_(Type::BOOL);

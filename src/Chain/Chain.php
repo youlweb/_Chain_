@@ -15,21 +15,33 @@ namespace Jul\Chain;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-interface Chain extends Link
+class ChainImp implements _Chain_
 {
     /**
-     * Append a link to the chain.
-     *
-     * @param Link $link
-     * @return self
+     * @var _Link_[]
      */
-    public function link(Link $link);
+    private $_links;
 
-    /**
-     * Runs the I/O through the chain, and returns its final state.
-     *
-     * @param I_O $I_O An I/O visitor.
-     * @return mixed|array
-     */
-    public function result(I_O $I_O);
+    /** {@inheritDoc} */
+    public function run(I_O $I_O)
+    {
+        foreach ($this->_links as $link) {
+            $link->run($I_O);
+        }
+        return $I_O;
+    }
+
+    /** {@inheritDoc} */
+    public function _link(_Link_ $link)
+    {
+        $this->_links[] = $link;
+        return $this;
+    }
+
+    /** {@inheritDoc} */
+    public function link_(_Link_ $link)
+    {
+        array_unshift($this->_links, $link);
+        return $this;
+    }
 }

@@ -7,16 +7,14 @@
  */
 namespace Jul\Chain;
 
-use Jul\Chain\Exception\LinkExceptionInterface;
-
 /**
  * Link interface.
  *
- * Updates a visiting I/O object via an operation.
+ * Updates a visiting Input/Output object via an operation.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-interface Link
+interface _Link_
 {
     /**
      * Performs an operation on a visiting I/O object.
@@ -25,5 +23,5 @@ interface Link
      * @param I_O $I_O... More I/O visitors.
      * @return I_O
      */
-    public function exec(I_O $I_O);
+    public function run(I_O $I_O);
 }

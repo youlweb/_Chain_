@@ -7,24 +7,24 @@
  */
 namespace Jul\Chain\Tests;
 
-use Jul\Chain\ANDGate;
+use Jul\Chain\_AND_;
 use Jul\Chain\IO;
 use Jul\Chain\Type\Type;
 
 /**
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class ANDGateTest extends \PHPUnit_Framework_TestCase
+class _AND_Test extends \PHPUnit_Framework_TestCase
 {
-    public function testExec()
+    public function testRun()
     {
-        $AND_link = new ANDGate();
+        $AND_link = new _AND_();
         $IO = new IO(true, false);
-        $AND_link->exec($IO);
+        $AND_link->run($IO);
         $this->assertFalse($IO->I_(Type::BOOL));
-        $AND_link->exec($IO->_O(true, true));
+        $AND_link->run($IO->_O(true, true));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $AND_link->exec($IO->_O(false, false));
+        $AND_link->run($IO->_O(false, false));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }
