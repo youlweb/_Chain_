@@ -25,12 +25,15 @@ interface I_O
      * @param int $type A type constant or FQCDN string.
      * @param bool $optional Signal an optional argument.
      * @return mixed An input value.
-     * @throws I_O_Exception If a mandatory argument is missing.
+     * @throws I_O_Exception If a mandatory argument is missing, or the
+     * request type is unexpected.
      */
     public function I_($type, $optional = false);
 
     /**
      * Updates the internal values and returns itself.
+     *
+     * The internal value pointer is reset to point at the first value.
      *
      * @param mixed $value
      * @param mixed $value,... More output values.

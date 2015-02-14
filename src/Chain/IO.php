@@ -59,6 +59,7 @@ class IO implements I_O
     public function _O($output)
     {
         $this->_values = func_get_args();
+        $this->_index = 0;
         return $this;
     }
 }

@@ -40,4 +40,12 @@ class IOTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(77, $IO->I_(Type::NUMBER));
         $this->assertEquals([1, 2, 3], $IO->I_(Type::MULTI));
     }
+
+    public function test_O_ResetsIndex()
+    {
+        $IO = new IO('foo');
+        $IO->I_(Type::STRING);
+        $IO->_O('bar');
+        $this->assertEquals('bar', $IO->I_(Type::STRING));
+    }
 }
