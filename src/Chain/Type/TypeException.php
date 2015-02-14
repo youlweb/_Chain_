@@ -8,7 +8,7 @@
 namespace Jul\Chain\Type;
 
 /**
- * Type exception
+ * Generic type exception.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */

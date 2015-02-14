@@ -7,12 +7,13 @@
  */
 namespace Jul\Chain;
 
-use Jul\Chain\Exception\I_O_ExceptionInterface;
+use Jul\Chain\Exception\I_O_Exception;
 
 /**
- * Input/Output
+ * Input/Output interface.
  *
- * The state of this visitor object is altered by each link it traverses.
+ * Carries the result of link operations through the chain. The state of this
+ * visitor object is altered by each link it traverses.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
@@ -21,11 +22,10 @@ interface I_O
     /**
      * Successively returns each internal value as an input argument.
      *
-     * @param integer $type A type constant.
-     * @param bool $optional
-     * @return mixed An internal state value.
-     * @throws I_O_ExceptionInterface If a mandatory argument is missing,
-     * or in case of a type mismatch.
+     * @param int $type A type constant or FQCDN string.
+     * @param bool $optional Signal an optional argument.
+     * @return mixed An input value.
+     * @throws I_O_Exception If a mandatory argument is missing.
      */
     public function I_($type, $optional = false);
 

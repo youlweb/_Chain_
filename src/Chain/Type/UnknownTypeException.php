@@ -10,8 +10,6 @@ namespace Jul\Chain\Type;
 use Exception;
 
 /**
- * Unknown type exception
- *
  * A type constant or FQCN is not valid.
  *
  * @author Julien Tord <youlweb@hotmail.com>
