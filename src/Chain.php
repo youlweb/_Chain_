@@ -20,16 +20,7 @@ class Chain implements _Chain_
     /**
      * @var _Link_[]
      */
-    private $_links;
-
-    /** {@inheritDoc} */
-    public function run(I_O $I_O)
-    {
-        foreach ($this->_links as $link) {
-            $link->run($I_O);
-        }
-        return $I_O;
-    }
+    private $_links = [];
 
     /** {@inheritDoc} */
     public function _link(_Link_ $link)
@@ -43,5 +34,20 @@ class Chain implements _Chain_
     {
         array_unshift($this->_links, $link);
         return $this;
+    }
+
+    /** {@inheritDoc} */
+    public function links()
+    {
+        return $this->_links;
+    }
+
+    /** {@inheritDoc} */
+    public function run(I_O $I_O)
+    {
+        foreach ($this->_links as $link) {
+            $link->run($I_O);
+        }
+        return $I_O;
     }
 }

@@ -32,4 +32,11 @@ interface _Chain_ extends _Link_
      * @return self
      */
     public function link_(_Link_ $link);
+
+    /**
+     * Returns all links in the chain.
+     *
+     * @return _Link_[]
+     */
+    public function links();
 }

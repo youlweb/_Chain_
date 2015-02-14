@@ -5,9 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace _Chain_\Tests\Type;
-
-use _Chain_\Type\TypeCheck;
+namespace _Chain_\Type;
 
 /**
  * @author Julien Tord <youlweb@hotmail.com>
