@@ -8,28 +8,28 @@
 namespace Jul\Chain;
 
 /**
- * Chain
+ * A chain is a collection of links.
  *
- * Pass an I/O visitor through a collection of links.
+ * An Input/Output visitor is passed through each link to update its state.
+ * A chain is also a link, allowing it to be inserted in other chains.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 interface Chain extends Link
 {
     /**
-     * Returns an output value from the last link in the chain.
-     *
-     * @param I_O_Interface $I_O
-     * @param integer $index
-     * @return mixed
-     */
-    public function get(I_O_Interface $I_O, $index = 0);
-
-    /**
      * Append a link to the chain.
      *
-     * @param LinkInterface $link
+     * @param Link $link
      * @return self
      */
-    public function link(LinkInterface $link);
+    public function link(Link $link);
+
+    /**
+     * Runs the I/O through the chain, and returns its final state.
+     *
+     * @param I_O $I_O An I/O visitor.
+     * @return mixed|array
+     */
+    public function result(I_O $I_O);
 }

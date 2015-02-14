@@ -12,15 +12,15 @@ namespace Jul\Chain;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class ChainImp implements ChainInterface
+class ChainImp implements Chain
 {
     /**
-     * @var LinkInterface[]
+     * @var Link[]
      */
     private $_links;
 
     /** {@inheritDoc} */
-    public function exec(I_O_Interface $I_O)
+    public function exec(I_O $I_O)
     {
         foreach ($this->_links as $link) {
             $link->exec($I_O);
@@ -29,15 +29,15 @@ class ChainImp implements ChainInterface
     }
 
     /** {@inheritDoc} */
-    public function get(I_O_Interface $I_O, $index = 0)
-    {
-        return $this->exec($I_O)->I_($index);
-    }
-
-    /** {@inheritDoc} */
-    public function link(LinkInterface $link)
+    public function link(Link $link)
     {
         $this->_links[] = $link;
         return $this;
+    }
+
+    /** {@inheritDoc} */
+    public function result(I_O $I_O, $index = 0)
+    {
+        return $this->exec($I_O)->I_($index);
     }
 }

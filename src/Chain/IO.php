@@ -27,6 +27,11 @@ class IO implements I_O
     private $_index = 0;
 
     /**
+     * @var bool
+     */
+    private $_prod = false;
+
+    /**
      * @var mixed[]
      */
     private $_values;
@@ -47,9 +52,11 @@ class IO implements I_O
             throw new I_O_InputIndexException($this->_index);
         }
         $value = $this->_values[$this->_index];
-        $actual_type = TypeCheck::typeOf($value);
-        if (!TypeCheck::isCompatible($type, TypeCheck::typeOf($value))) {
-            throw new I_O_InputTypeException($this->_index, $type, $actual_type);
+        if (!$this->_prod) {
+            $actual_type = TypeCheck::typeOf($value);
+            if (!TypeCheck::isCompatible($type, TypeCheck::typeOf($value))) {
+                throw new I_O_InputTypeException($this->_index, $type, $actual_type);
+            }
         }
         ++$this->_index;
         return $value;
@@ -60,6 +67,13 @@ class IO implements I_O
     {
         $this->_values = func_get_args();
         $this->_index = 0;
+        return $this;
+    }
+
+    /** {@inheritDoc} */
+    public function prod($prod)
+    {
+        $this->_prod = $prod;
         return $this;
     }
 }

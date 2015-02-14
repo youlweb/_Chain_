@@ -48,4 +48,11 @@ class IOTest extends \PHPUnit_Framework_TestCase
         $IO->_O('bar');
         $this->assertEquals('bar', $IO->I_(Type::STRING));
     }
+
+    public function testProd()
+    {
+        $IO = new IO('foo');
+        $IO->prod(true);
+        $this->assertEquals('foo', $IO->I_(Type::BOOL));
+    }
 }

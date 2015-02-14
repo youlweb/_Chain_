@@ -40,4 +40,15 @@ interface I_O
      * @return self
      */
     public function _O($value);
+
+    /**
+     * Bypass type checking for high performance.
+     *
+     * When you are using chains in a tested production environment only.
+     * Defaults to FALSE.
+     *
+     * @param bool $prod
+     * @return self
+     */
+    public function prod($prod);
 }
