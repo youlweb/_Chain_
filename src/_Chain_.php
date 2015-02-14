@@ -19,7 +19,7 @@ namespace _Chain_;
 interface _Chain_ extends _Link_
 {
     /**
-     * Append a link to the chain.
+     * Appends a link to the chain.
      *
      * @param _Link_ $link
      * @return self
@@ -27,7 +27,7 @@ interface _Chain_ extends _Link_
     public function _link(_Link_ $link);
 
     /**
-     * Prepend a link to the chain.
+     * Prepends a link to the chain.
      *
      * @param _Link_ $link
      * @return self
