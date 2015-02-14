@@ -22,7 +22,7 @@ interface I_O
     /**
      * Successively returns each internal value as an input argument.
      *
-     * @param int $type A type constant or FQCDN string.
+     * @param int $type A type constant or FQCN string.
      * @param bool $optional Signal an optional argument.
      * @return mixed An input value.
      * @throws I_O_Exception If a mandatory argument is missing, or the

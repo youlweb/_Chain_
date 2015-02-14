@@ -10,34 +10,26 @@ namespace Jul\Chain;
 /**
  * Chain
  *
+ * Pass an I/O visitor through a collection of links.
+ *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class Chain implements ChainInterface
+interface Chain extends Link
 {
     /**
-     * @var LinkInterface[]
+     * Returns an output value from the last link in the chain.
+     *
+     * @param I_O_Interface $I_O
+     * @param integer $index
+     * @return mixed
      */
-    private $_links;
+    public function get(I_O_Interface $I_O, $index = 0);
 
-    /** {@inheritDoc} */
-    public function exec(I_O_Interface $I_O)
-    {
-        foreach ($this->_links as $link) {
-            $link->exec($I_O);
-        }
-        return $I_O;
-    }
-
-    /** {@inheritDoc} */
-    public function get(I_O_Interface $I_O, $index = 0)
-    {
-        return $this->exec($I_O)->I_($index);
-    }
-
-    /** {@inheritDoc} */
-    public function link(LinkInterface $link)
-    {
-        $this->_links[] = $link;
-        return $this;
-    }
+    /**
+     * Append a link to the chain.
+     *
+     * @param LinkInterface $link
+     * @return self
+     */
+    public function link(LinkInterface $link);
 }
