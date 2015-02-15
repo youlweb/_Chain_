@@ -16,12 +16,18 @@ namespace _Chain_;
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class Chain implements _Chain_
+class Chain extends _AbsLink_
 {
     /**
      * @var _Link_[]
      */
     private $_links = [];
+
+    /** {@inheritDoc} */
+    public function halt()
+    {
+        return false;
+    }
 
     /** {@inheritDoc} */
     public function _link(_Link_ $link)
@@ -48,6 +54,9 @@ class Chain implements _Chain_
     {
         foreach ($this->_links as $link) {
             $link->run($I_O);
+            if ($link->isHalt()) {
+                break;
+            }
         }
         return $I_O;
     }

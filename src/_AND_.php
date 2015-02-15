@@ -16,13 +16,12 @@ namespace _Chain_;
  * <pre>
  * I    bool
  * I    bool
- * /
  * O    bool    Result of the AND operation
  * </pre>
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
-class _AND_ implements _Link_
+class _AND_ extends _AbsLink_
 {
     /** {@inheritDoc} */
     public function run(I_O $I_O)

@@ -13,6 +13,13 @@ namespace _Chain_;
  */
 class IOTest extends \PHPUnit_Framework_TestCase
 {
+    public function testI_ReturnsNullIfUnavailableOptionalInput()
+    {
+        $IO = new IO('foo');
+        $IO->I_(Type::STRING);
+        $this->assertEquals(null, $IO->I_(Type::NUMBER, true));
+    }
+
     public function testI_ReturnsSuccessiveInputsAndThrowsExceptionWhenDone()
     {
         $IO = new IO('foo', 77, [1, 2, 3]);

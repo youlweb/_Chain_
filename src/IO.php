@@ -7,6 +7,7 @@
  */
 
 namespace _Chain_;
+
 use _Chain_\Exception\I_O_InputIndexException;
 use _Chain_\Exception\I_O_InputTypeException;
 
@@ -47,7 +48,10 @@ class IO implements I_O
     /** {@inheritDoc} */
     public function I_($type, $optional = false)
     {
-        if (!$optional && !isset($this->_values[$this->_index])) {
+        if (!isset($this->_values[$this->_index])) {
+            if ($optional) {
+                return null;
+            }
             throw new I_O_InputIndexException($this->_index);
         }
         $value = $this->_values[$this->_index];

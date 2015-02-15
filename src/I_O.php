@@ -42,7 +42,7 @@ interface I_O
     public function _O($value);
 
     /**
-     * Bypass type checking for high performance.
+     * Bypass type checking for a performance uptick.
      *
      * When you are using chains in a tested production environment only.
      * Defaults to FALSE.
