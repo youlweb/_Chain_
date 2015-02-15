@@ -15,9 +15,6 @@ use _Chain_\Type;
 /**
  * Applies the AND operator to a couple of booleans.
  *
- * The abstract link class provides the _X_() operation that should always
- * return FALSE, unless an aspect of the link requires to break a chain.
- *
  * I/O contract
  * ------------
  * <pre>
