@@ -9,7 +9,12 @@
 namespace _Chain_;
 
 /**
- * Abstract link
+ * Abstract link.
+ *
+ * This class can be extended to avoid implementing the chain-breaking
+ * operation _X_(), since it should return FALSE in most cases.
+ * The protected variable $_X_ can be set to true shall the need to break
+ * the chain arise.
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
