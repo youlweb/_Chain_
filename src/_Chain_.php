@@ -22,6 +22,12 @@ interface _Chain_ extends _Link_, Iterator
     /**
      * Inserts a link in the chain.
      *
+     * If offset is not provided, the link is appended to the chain.
+     * If offset is positive, the link is inserted at that offset from the
+     * beginning of the chain.
+     * If offset is negative then it's inserted that far from the end of
+     * the chain.
+     *
      * @param _Link_ $link
      * @param int|null $offset Position where the link should be inserted.
      * @return self

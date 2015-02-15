@@ -34,21 +34,15 @@ class Chain extends _AbsLink_ implements _Chain_
         if (null === $offset) {
             $this->_links[] = $link;
         } else {
-            array_splice($this->_links, $offset, 0, $link);
+            array_splice($this->_links, $offset, 0, [$link]);
         }
         return $this;
     }
 
     /** {@inheritDoc} */
-    public function current()
-    {
-        return $this->_links[$this->_index];
-    }
-
-    /** {@inheritDoc} */
     public function EXE(I_O $I_O)
     {
-        foreach ($this->_links as $link) {
+        foreach ($this as $link) {
             $link->EXE($I_O);
             if ($link->_X_()) {
                 break;
@@ -60,10 +54,16 @@ class Chain extends _AbsLink_ implements _Chain_
     /** {@inheritDoc} */
     public function GET($index)
     {
-        if (!$this->_links[$index]) {
+        if (!isset($this->_links[$index])) {
             return null;
         }
         return $this->_links[$index];
+    }
+
+    /** {@inheritDoc} */
+    public function current()
+    {
+        return $this->_links[$this->_index];
     }
 
     /** {@inheritDoc} */
