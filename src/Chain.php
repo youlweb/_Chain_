@@ -16,7 +16,7 @@ namespace _Chain_;
  *
  * @author Julien <youlweb@hotmail.com>
  */
-class Chain extends _AbsLink_
+class Chain extends _AbsLink_ implements _Chain_
 {
     /**
      * @var _Link_[]
