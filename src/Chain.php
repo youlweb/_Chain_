@@ -24,27 +24,21 @@ class Chain extends _AbsLink_
     private $_links = [];
 
     /** {@inheritDoc} */
-    public function halt()
-    {
-        return false;
-    }
-
-    /** {@inheritDoc} */
-    public function _link(_Link_ $link)
+    public function _ADD(_Link_ $link)
     {
         $this->_links[] = $link;
         return $this;
     }
 
     /** {@inheritDoc} */
-    public function link_(_Link_ $link)
+    public function ADD_(_Link_ $link)
     {
         array_unshift($this->_links, $link);
         return $this;
     }
 
     /** {@inheritDoc} */
-    public function links()
+    public function ALL()
     {
         return $this->_links;
     }

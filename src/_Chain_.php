@@ -24,7 +24,7 @@ interface _Chain_ extends _Link_
      * @param _Link_ $link
      * @return self
      */
-    public function _link(_Link_ $link);
+    public function _ADD(_Link_ $link);
 
     /**
      * Prepends a link to the chain.
@@ -32,12 +32,12 @@ interface _Chain_ extends _Link_
      * @param _Link_ $link
      * @return self
      */
-    public function link_(_Link_ $link);
+    public function ADD_(_Link_ $link);
 
     /**
      * Returns all links in the chain.
      *
      * @return _Link_[]
      */
-    public function links();
+    public function ALL();
 }

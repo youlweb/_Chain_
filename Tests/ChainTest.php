@@ -18,8 +18,8 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $_chain_ = new Chain();
         $_link_1 = $this->mockLink('lnk1');
         $_link_2 = $this->mockLink('lnk2');
-        $_chain_->_link($_link_1)->_link($_link_2);
-        $this->assertEquals([$_link_1, $_link_2], $_chain_->links());
+        $_chain_->_ADD($_link_1)->_ADD($_link_2);
+        $this->assertEquals([$_link_1, $_link_2], $_chain_->ALL());
     }
 
     public function testLink_()
@@ -27,8 +27,8 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $_chain_ = new Chain();
         $_link_1 = $this->mockLink('lnk1');
         $_link_2 = $this->mockLink('lnk2');
-        $_chain_->link_($_link_1)->link_($_link_2);
-        $this->assertEquals([$_link_2, $_link_1], $_chain_->links());
+        $_chain_->ADD_($_link_1)->ADD_($_link_2);
+        $this->assertEquals([$_link_2, $_link_1], $_chain_->ALL());
     }
 
     public function testRun()
@@ -39,7 +39,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $_link_2 = $this->mockLink('lnk2');
         $_link_2->expects($this->once())->method('EXE')->with($I_O);
         $_chain_ = new Chain();
-        $_chain_->_link($_link_1)->_link($_link_2);
+        $_chain_->_ADD($_link_1)->_ADD($_link_2);
         $this->assertEquals($I_O, $_chain_->EXE($I_O));
     }
 
@@ -52,7 +52,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $_link_2 = $this->mockLink('lnk2');
         $_link_2->expects($this->never())->method('EXE');
         $_chain_ = new Chain();
-        $_chain_->_link($_link_1)->_link($_link_2);
+        $_chain_->_ADD($_link_1)->_ADD($_link_2);
         $this->assertEquals($I_O, $_chain_->EXE($I_O));
     }
 
