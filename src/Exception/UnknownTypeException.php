@@ -12,7 +12,7 @@ use Exception;
 /**
  * A type constant or FQCN is not valid.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class UnknownTypeException extends Exception implements TypeException
 {

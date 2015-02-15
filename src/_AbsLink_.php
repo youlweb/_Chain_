@@ -16,7 +16,7 @@ namespace _Chain_;
  * The protected variable $_X_ can be set to true shall the need to break
  * the chain arise.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 abstract class _AbsLink_ implements _Link_
 {

@@ -17,7 +17,7 @@ use _Chain_\Exception\I_O_InputTypeException;
  * Carries the result of link operations through the chain. The state of this
  * visitor object is altered by each link it traverses.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class IO implements I_O
 {

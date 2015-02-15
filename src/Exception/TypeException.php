@@ -9,9 +9,9 @@
 namespace _Chain_\Exception;
 
 /**
- * Generic type exception.
+ * Type exception interface.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 interface TypeException
 {

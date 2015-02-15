@@ -11,7 +11,7 @@ namespace _Chain_\Exception;
 /**
  * I/O exception interface.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 interface I_O_Exception
 {

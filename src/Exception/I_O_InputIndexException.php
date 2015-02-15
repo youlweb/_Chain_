@@ -12,7 +12,7 @@ use Exception;
 /**
  * An unavailable argument is requested.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class I_O_InputIndexException extends Exception implements I_O_Exception
 {

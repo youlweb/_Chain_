@@ -14,7 +14,7 @@ namespace _Chain_;
  * An Input/Output visitor is passed through each link to update its state.
  * A chain is also a link, allowing it to be inserted in other chains.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class Chain extends _AbsLink_
 {

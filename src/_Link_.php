@@ -24,7 +24,7 @@ namespace _Chain_;
  * X    yes/no      Breaks the chain if ...
  * </pre>
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 interface _Link_
 {

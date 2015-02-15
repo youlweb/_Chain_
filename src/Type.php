@@ -15,7 +15,7 @@ use _Chain_\Exception\TypeException;
  * _Chain_ uses type constants for primitive types, and FQCN strings to represent
  * objects. Note that closures are cast as 'Closure' objects in PHP.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 interface Type
 {

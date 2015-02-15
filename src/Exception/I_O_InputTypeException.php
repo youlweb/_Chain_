@@ -13,7 +13,7 @@ use Exception;
 /**
  * An input argument of an unexpected type is requested.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class I_O_InputTypeException extends Exception implements I_O_Exception
 {

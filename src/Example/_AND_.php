@@ -7,7 +7,6 @@
  */
 
 namespace _Chain_\Example;
-
 use _Chain_\_AbsLink_;
 use _Chain_\I_O;
 use _Chain_\Type;
@@ -24,7 +23,7 @@ use _Chain_\Type;
  * X    no
  * </pre>
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class _AND_ extends _AbsLink_
 {

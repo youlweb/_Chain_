@@ -9,7 +9,7 @@
 namespace _Chain_;
 
 /**
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class ChainTest extends \PHPUnit_Framework_TestCase
 {

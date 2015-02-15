@@ -10,7 +10,7 @@ namespace _Chain_;
 use _Chain_\Example\_AND_;
 
 /**
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class _AND_Test extends \PHPUnit_Framework_TestCase
 {
