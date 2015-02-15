@@ -18,15 +18,13 @@ use _Chain_\Type;
  * The abstract link class provides the _X_() operation that should always
  * return FALSE, unless an aspect of the link requires to break a chain.
  *
- * Below is an example of the I/O contract that should be included with every
- * link, in the class-level PHP doc.
- *
  * I/O contract
  * ------------
  * <pre>
  * I    bool
  * I    bool
- * O    bool    Result of the AND operation
+ * O    bool        Result of the AND operation.
+ * X    no
  * </pre>
  *
  * @author Julien Tord <youlweb@hotmail.com>

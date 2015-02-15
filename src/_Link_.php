@@ -11,14 +11,25 @@ namespace _Chain_;
 /**
  * Link interface.
  *
- * Updates a visiting Input/Output object via an operation.
+ * Updates a visiting Input/Output object via an operation. Below is a template
+ * for the Input/Output contract that should be included with every link.
+ *
+ * I/O contract
+ * ------------
+ * <pre>
+ * I    string      Optional description.
+ *      ...         as many inputs as needed.
+ * O    number      Optional description.
+ *      ...         as many outputs as needed.
+ * X    yes/no      Breaks the chain if ...
+ * </pre>
  *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 interface _Link_
 {
     /**
-     * Checks if link caused the chain to break.
+     * Checks if the link breaks the chain.
      *
      * @return bool
      */
