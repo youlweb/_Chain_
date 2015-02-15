@@ -54,7 +54,7 @@ class Chain extends _AbsLink_
     {
         foreach ($this->_links as $link) {
             $link->run($I_O);
-            if ($link->isHalt()) {
+            if ($link->_X_()) {
                 break;
             }
         }

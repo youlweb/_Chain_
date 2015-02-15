@@ -7,6 +7,7 @@
  */
 
 namespace _Chain_;
+use _Chain_\Example\_AND_;
 
 /**
  * @author Julien Tord <youlweb@hotmail.com>

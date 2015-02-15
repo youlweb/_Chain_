@@ -43,12 +43,12 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($I_O, $_chain_->run($I_O));
     }
 
-    public function testRunHalts()
+    public function testRunBreaks()
     {
         $I_O = $this->mockI_O('mockIO');
         $_link_1 = $this->mockLink('lnk1');
         $_link_1->expects($this->once())->method('run')->with($I_O);
-        $_link_1->expects($this->once())->method('isHalt')->willReturn(true);
+        $_link_1->expects($this->once())->method('_X_')->willReturn(true);
         $_link_2 = $this->mockLink('lnk2');
         $_link_2->expects($this->never())->method('run');
         $_chain_ = new Chain();

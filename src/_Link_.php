@@ -18,11 +18,11 @@ namespace _Chain_;
 interface _Link_
 {
     /**
-     * Checks if the execution of the chain should come to a halt.
+     * Checks if link caused the chain to break.
      *
      * @return bool
      */
-    public function isHalt();
+    public function _X_();
 
     /**
      * Performs an operation on a visiting I/O object.

@@ -6,10 +6,20 @@
  * @package chain/chain
  */
 
-namespace _Chain_;
+namespace _Chain_\Example;
+
+use _Chain_\_AbsLink_;
+use _Chain_\I_O;
+use _Chain_\Type;
 
 /**
  * Applies the AND operator to a couple of booleans.
+ *
+ * The abstract link class provides the _X_() operation that should always
+ * return FALSE, unless an aspect of the link requires to break a chain.
+ *
+ * Below is an example of the I/O contract that should be included with every
+ * link, in the class-level PHP doc.
  *
  * I/O contract
  * ------------

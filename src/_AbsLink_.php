@@ -18,11 +18,11 @@ abstract class _AbsLink_ implements _Link_
     /**
      * @var bool
      */
-    protected $_halt = false;
+    protected $_X_ = false;
 
     /** {@inheritDoc} */
-    public function isHalt()
+    public function _X_()
     {
-        return $this->_halt;
+        return $this->_X_;
     }
 }
