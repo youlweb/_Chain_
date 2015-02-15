@@ -18,11 +18,11 @@ class _AND_Test extends \PHPUnit_Framework_TestCase
     {
         $AND_link = new _AND_();
         $IO = new IO(true, false);
-        $AND_link->run($IO);
+        $AND_link->EXE($IO);
         $this->assertFalse($IO->I_(Type::BOOL));
-        $AND_link->run($IO->_O(true, true));
+        $AND_link->EXE($IO->_O(true, true));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $AND_link->run($IO->_O(false, false));
+        $AND_link->EXE($IO->_O(false, false));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }

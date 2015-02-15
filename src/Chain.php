@@ -50,10 +50,10 @@ class Chain extends _AbsLink_
     }
 
     /** {@inheritDoc} */
-    public function run(I_O $I_O)
+    public function EXE(I_O $I_O)
     {
         foreach ($this->_links as $link) {
-            $link->run($I_O);
+            $link->EXE($I_O);
             if ($link->_X_()) {
                 break;
             }

@@ -31,5 +31,5 @@ interface _Link_
      * @param I_O $I_O... More I/O visitors.
      * @return I_O
      */
-    public function run(I_O $I_O);
+    public function EXE(I_O $I_O);
 }
