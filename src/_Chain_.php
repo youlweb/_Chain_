@@ -7,37 +7,32 @@
  */
 
 namespace _Chain_;
+use Iterator;
 
 /**
- * A chain is a collection of links.
+ * A chain is a composite collection of links.
  *
  * An Input/Output visitor is passed through each link to update its state.
  * A chain is also a link, allowing it to be inserted in other chains.
  *
  * @author Julien <youlweb@hotmail.com>
  */
-interface _Chain_ extends _Link_
+interface _Chain_ extends _Link_, Iterator
 {
     /**
-     * Appends a link to the chain.
+     * Inserts a link in the chain.
      *
      * @param _Link_ $link
+     * @param int|null $offset Position where the link should be inserted.
      * @return self
      */
-    public function _ADD(_Link_ $link);
+    public function ADD(_Link_ $link, $offset);
 
     /**
-     * Prepends a link to the chain.
+     * Returns a link from the chain.
      *
-     * @param _Link_ $link
-     * @return self
+     * @param int $index The position of the link in the chain.
+     * @return _Link_|null No exception is thrown if $index doesn't exist.
      */
-    public function ADD_(_Link_ $link);
-
-    /**
-     * Returns all links in the chain.
-     *
-     * @return _Link_[]
-     */
-    public function ALL();
+    public function GET($index);
 }
