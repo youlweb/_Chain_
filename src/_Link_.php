@@ -38,9 +38,9 @@ interface _Link_
     /**
      * Performs an operation on a visiting I/O object.
      *
-     * @param I_O $I_O
-     * @param I_O $I_O... More I/O visitors.
+     * @param I_O $IO
+     * @param I_O $IO... More I/O visitors.
      * @return I_O
      */
-    public function EXE(I_O $I_O);
+    public function EXE(I_O $IO);
 }
