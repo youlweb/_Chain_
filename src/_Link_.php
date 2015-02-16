@@ -29,18 +29,36 @@ namespace _Chain_;
 interface _Link_
 {
     /**
-     * Checks if the link breaks the chain.
+     * Checks if the link breaks the chain if no argument is provided.
      *
+     * If an argument is provided, it determines the status of _X_().
+     *
+     * @param bool $break
      * @return bool
      */
-    public function _X_();
+    public function _X_($break = null);
 
     /**
      * Performs an operation on a visiting I/O object.
      *
      * @param I_O $IO
-     * @param I_O $IO... More I/O visitors.
+     * @param I_O $IO ... More I/O visitors.
      * @return I_O
      */
     public function EXE(I_O $IO);
+
+    /**
+     * Returns the parent chain if available.
+     *
+     * @return _Chain_|null
+     */
+    public function getParent();
+
+    /**
+     * Determines the parent chain.
+     *
+     * @param _Chain_ $chain
+     * @return self
+     */
+    public function setParent(_Chain_ $chain);
 }

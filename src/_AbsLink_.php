@@ -13,8 +13,7 @@ namespace _Chain_;
  *
  * This class can be extended to avoid implementing the chain-breaking
  * operation _X_(), since it should return FALSE in most cases.
- * The protected variable $_X_ can be set to true shall the need to break
- * the chain arise.
+ * Link parent operations are also implemented.
  *
  * @author Julien <youlweb@hotmail.com>
  */
@@ -23,11 +22,32 @@ abstract class _AbsLink_ implements _Link_
     /**
      * @var bool
      */
-    protected $_X_ = false;
+    private $_break = false;
+
+    /**
+     * @var _Chain_
+     */
+    private $_chain;
 
     /** {@inheritDoc} */
-    public function _X_()
+    public function _X_($break = null)
     {
-        return $this->_X_;
+        if (null !== $break) {
+            $this->_break = $break;
+        }
+        return $this->_break;
+    }
+
+    /** {@inheritDoc} */
+    public function getParent()
+    {
+        return $this->_chain;
+    }
+
+    /** {@inheritDoc} */
+    public function setParent(_Chain_ $chain)
+    {
+        $this->_chain = $chain;
+        return $this;
     }
 }
