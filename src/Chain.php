@@ -32,7 +32,7 @@ class Chain extends _AbsLink_ implements _Chain_
     public function ADD(_Link_ $link, $offset = null)
     {
         if (null === $offset) {
-            $this->_links[] = $link;
+            $this->_links[] = $link->setParent($this);
         } else {
             array_splice($this->_links, $offset, 0, [$link]);
         }

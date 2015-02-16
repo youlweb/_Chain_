@@ -15,25 +15,29 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 {
     public function testADD()
     {
-        $chain_ = new Chain();
+        $chain = new Chain();
         $link_1 = $this->mockLink('lnk1');
+        $link_1->expects($this->once())->method('setParent')->with($chain)
+            ->willReturn($link_1);
         $link_2 = $this->mockLink('lnk2');
-        $chain_->ADD($link_1);
-        $this->assertEquals($link_1, $chain_->GET(0));
-        $chain_->ADD($link_2);
-        $this->assertEquals($link_2, $chain_->GET(1));
+        $link_2->expects($this->once())->method('setParent')->with($chain)
+            ->willReturn($link_2);
+        $chain->ADD($link_1);
+        $this->assertEquals($link_1, $chain->GET(0));
+        $chain->ADD($link_2);
+        $this->assertEquals($link_2, $chain->GET(1));
     }
 
     public function testADDWithOffset()
     {
-        $chain_ = new Chain();
+        $chain = new Chain();
         $link_1 = $this->mockLink('lnk1');
         $link_2 = $this->mockLink('lnk2');
         $link_3 = $this->mockLink('lnk3');
-        $chain_->ADD($link_1)->ADD($link_2)->ADD($link_3, 1);
-        $this->assertEquals($link_3, $chain_->GET(1));
-        $chain_->ADD($link_2, -3);
-        $this->assertEquals($link_2, $chain_->GET(0));
+        $chain->ADD($link_1)->ADD($link_2)->ADD($link_3, 1);
+        $this->assertEquals($link_3, $chain->GET(1));
+        $chain->ADD($link_2, -3);
+        $this->assertEquals($link_2, $chain->GET(0));
     }
 
     public function testEXE()
@@ -43,9 +47,9 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $link_1->expects($this->once())->method('EXE')->with($IO);
         $link_2 = $this->mockLink('lnk2');
         $link_2->expects($this->once())->method('EXE')->with($IO);
-        $chain_ = new Chain();
-        $chain_->ADD($link_1)->ADD($link_2);
-        $this->assertEquals($IO, $chain_->EXE($IO));
+        $chain = new Chain();
+        $chain->ADD($link_1)->ADD($link_2);
+        $this->assertEquals($IO, $chain->EXE($IO));
     }
 
     public function testEXEBreaks()
@@ -56,39 +60,39 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         $link_1->expects($this->once())->method('_X_')->willReturn(true);
         $link_2 = $this->mockLink('lnk2');
         $link_2->expects($this->never())->method('EXE');
-        $chain_ = new Chain();
-        $chain_->ADD($link_1)->ADD($link_2);
-        $this->assertEquals($IO, $chain_->EXE($IO));
+        $chain = new Chain();
+        $chain->ADD($link_1)->ADD($link_2);
+        $this->assertEquals($IO, $chain->EXE($IO));
     }
 
     public function testGET()
     {
-        $chain_ = new Chain();
+        $chain = new Chain();
         $link_1 = $this->mockLink('lnk1');
         $link_2 = $this->mockLink('lnk2');
-        $chain_->ADD($link_1)->ADD($link_2);
-        $this->assertEquals($link_1, $chain_->GET(0));
-        $this->assertEquals($link_2, $chain_->GET(1));
-        $this->assertNull($chain_->GET(2));
+        $chain->ADD($link_1)->ADD($link_2);
+        $this->assertEquals($link_1, $chain->GET(0));
+        $this->assertEquals($link_2, $chain->GET(1));
+        $this->assertNull($chain->GET(2));
     }
 
     public function testCurrentKeyNextRewindValid()
     {
-        $chain_ = new Chain();
+        $chain = new Chain();
         $link_1 = $this->mockLink('lnk1');
         $link_2 = $this->mockLink('lnk2');
-        $chain_->ADD($link_1)->ADD($link_2);
-        $this->assertEquals(0, $chain_->key());
-        $this->assertTrue($chain_->valid());
-        $this->assertEquals($link_1, $chain_->current());
-        $chain_->next();
-        $this->assertEquals(1, $chain_->key());
-        $this->assertTrue($chain_->valid());
-        $this->assertEquals($link_2, $chain_->current());
-        $chain_->next();
-        $this->assertFalse($chain_->valid());
-        $chain_->rewind();
-        $this->assertEquals(0, $chain_->key());
+        $chain->ADD($link_1)->ADD($link_2);
+        $this->assertEquals(0, $chain->key());
+        $this->assertTrue($chain->valid());
+        $this->assertEquals($link_1, $chain->current());
+        $chain->next();
+        $this->assertEquals(1, $chain->key());
+        $this->assertTrue($chain->valid());
+        $this->assertEquals($link_2, $chain->current());
+        $chain->next();
+        $this->assertFalse($chain->valid());
+        $chain->rewind();
+        $this->assertEquals(0, $chain->key());
     }
 
     /**
@@ -106,6 +110,8 @@ class ChainTest extends \PHPUnit_Framework_TestCase
      */
     private function mockLink($name)
     {
-        return $this->getMock('_Chain_\_Link_', [], [], $name);
+        $link = $this->getMock('_Chain_\_Link_', [], [], $name);
+        $link->expects($this->any())->method('setParent')->willReturn($link);
+        return $link;
     }
 }
