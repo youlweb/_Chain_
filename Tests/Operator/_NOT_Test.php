@@ -15,7 +15,7 @@ use _Chain_\Type;
  */
 class _NOT_Test extends \PHPUnit_Framework_TestCase
 {
-    public function testRun()
+    public function testEXE()
     {
         $NOT = new _NOT_();
         $IO = new IO(true, false);

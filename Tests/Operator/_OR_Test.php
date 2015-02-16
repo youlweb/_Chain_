@@ -15,7 +15,7 @@ use _Chain_\Type;
  */
 class _OR_Test extends \PHPUnit_Framework_TestCase
 {
-    public function testRun()
+    public function testEXE()
     {
         $OR = new _OR_();
         $IO = new IO(true, false);
