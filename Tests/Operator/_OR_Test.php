@@ -17,13 +17,13 @@ class _OR_Test extends \PHPUnit_Framework_TestCase
 {
     public function testRun()
     {
-        $or = new _OR_();
+        $OR = new _OR_();
         $IO = new IO(true, false);
-        $or->EXE($IO);
+        $OR->EXE($IO);
         $this->assertTrue($IO->I_(Type::BOOL));
-        $or->EXE($IO->_O(false, false, true, false));
+        $OR->EXE($IO->_O(false, false, true, false));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $or->EXE($IO->_O(false, false, false, false));
+        $OR->EXE($IO->_O(false, false, false, false));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }

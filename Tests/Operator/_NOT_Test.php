@@ -13,17 +13,17 @@ use _Chain_\Type;
 /**
  * @author Julien <youlweb@hotmail.com>
  */
-class _AND_Test extends \PHPUnit_Framework_TestCase
+class _NOT_Test extends \PHPUnit_Framework_TestCase
 {
     public function testRun()
     {
-        $AND = new _AND_();
+        $NOT = new _NOT_();
         $IO = new IO(true, false);
-        $AND->EXE($IO);
+        $NOT->EXE($IO);
         $this->assertFalse($IO->I_(Type::BOOL));
-        $AND->EXE($IO->_O(true, true, true, true));
+        $NOT->EXE($IO->_O(false, false, false));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $AND->EXE($IO->_O(true, true, false, true));
+        $NOT->EXE($IO->_O(false, false, false, true));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }
