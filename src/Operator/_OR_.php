@@ -21,7 +21,7 @@ use _Chain_\Type;
  * <pre>
  * I    bool
  * ...  bool
- * O    bool        Result of the AND operation.
+ * O    bool        Result of the OR operation.
  * X    no
  * </pre>
  *
