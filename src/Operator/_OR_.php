@@ -14,7 +14,7 @@ use _Chain_\I_O;
 use _Chain_\Type;
 
 /**
- * Applies the AND operator to the input values.
+ * Applies the OR operator to the input values.
  *
  * I/O contract
  * ------------
@@ -27,20 +27,20 @@ use _Chain_\Type;
  *
  * @author Julien <youlweb@hotmail.com>
  */
-class _AND_ extends _AbsLink_
+class _OR_ extends _AbsLink_
 {
     /** {@inheritDoc} */
     public function EXE(I_O $IO)
     {
         while (true) {
             try {
-                if (false === $IO->I_(Type::BOOL)) {
-                    return $IO->_O(false);
+                if (true === $IO->I_(Type::BOOL)) {
+                    return $IO->_O(true);
                 }
             } catch (I_O_InputIndexException $e) {
                 break;
             }
         }
-        return $IO->_O(true);
+        return $IO->_O(false);
     }
 }
