@@ -21,9 +21,9 @@ class _AND_Test extends \PHPUnit_Framework_TestCase
         $IO = new IO(true, false);
         $AND->EXE($IO);
         $this->assertFalse($IO->I_(Type::BOOL));
-        $AND->EXE($IO->_O(true, true));
+        $AND->EXE($IO->_O(true, true, true, true));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $AND->EXE($IO->_O(false, false));
+        $AND->EXE($IO->_O(true, true, false, true));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }
