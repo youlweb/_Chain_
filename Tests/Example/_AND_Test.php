@@ -7,6 +7,7 @@
  */
 
 namespace _Chain_;
+
 use _Chain_\Example\_AND_;
 
 /**
@@ -16,13 +17,13 @@ class _AND_Test extends \PHPUnit_Framework_TestCase
 {
     public function testRun()
     {
-        $AND_link = new _AND_();
+        $AND = new _AND_();
         $IO = new IO(true, false);
-        $AND_link->EXE($IO);
+        $AND->EXE($IO);
         $this->assertFalse($IO->I_(Type::BOOL));
-        $AND_link->EXE($IO->_O(true, true));
+        $AND->EXE($IO->_O(true, true));
         $this->assertTrue($IO->I_(Type::BOOL));
-        $AND_link->EXE($IO->_O(false, false));
+        $AND->EXE($IO->_O(false, false));
         $this->assertFalse($IO->I_(Type::BOOL));
     }
 }

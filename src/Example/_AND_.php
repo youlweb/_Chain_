@@ -28,10 +28,10 @@ use _Chain_\Type;
 class _AND_ extends _AbsLink_
 {
     /** {@inheritDoc} */
-    public function EXE(I_O $I_O)
+    public function EXE(I_O $IO)
     {
-        $AND = $I_O->I_(Type::BOOL)
-            && $I_O->I_(Type::BOOL);
-        return $I_O->_O($AND);
+        $AND = $IO->I_(Type::BOOL)
+            && $IO->I_(Type::BOOL);
+        return $IO->_O($AND);
     }
 }

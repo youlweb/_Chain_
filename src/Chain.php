@@ -40,15 +40,15 @@ class Chain extends _AbsLink_ implements _Chain_
     }
 
     /** {@inheritDoc} */
-    public function EXE(I_O $I_O)
+    public function EXE(I_O $IO)
     {
         foreach ($this as $link) {
-            $link->EXE($I_O);
+            $link->EXE($IO);
             if ($link->_X_()) {
                 break;
             }
         }
-        return $I_O;
+        return $IO;
     }
 
     /** {@inheritDoc} */
