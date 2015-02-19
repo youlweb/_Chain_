@@ -17,11 +17,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
     {
         $chain = new Chain();
         $link_1 = $this->mockLink('lnk1');
-        $link_1->expects($this->once())->method('setParent')->with($chain)
-            ->willReturn($link_1);
         $link_2 = $this->mockLink('lnk2');
-        $link_2->expects($this->once())->method('setParent')->with($chain)
-            ->willReturn($link_2);
         $chain->ADD($link_1);
         $this->assertEquals($link_1, $chain->GET(0));
         $chain->ADD($link_2);
@@ -110,8 +106,6 @@ class ChainTest extends \PHPUnit_Framework_TestCase
      */
     private function mockLink($name)
     {
-        $link = $this->getMock('_Chain_\_Link_', [], [], $name);
-        $link->expects($this->any())->method('setParent')->willReturn($link);
-        return $link;
+        return $this->getMock('_Chain_\_Link_', [], [], $name);
     }
 }

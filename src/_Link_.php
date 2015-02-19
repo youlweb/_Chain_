@@ -46,19 +46,4 @@ interface _Link_
      * @return I_O
      */
     public function EXE(I_O $IO);
-
-    /**
-     * Returns the parent chain if available.
-     *
-     * @return _Chain_|null
-     */
-    public function getParent();
-
-    /**
-     * Determines the parent chain.
-     *
-     * @param _Chain_ $chain
-     * @return self
-     */
-    public function setParent(_Chain_ $chain);
 }
