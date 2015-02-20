@@ -68,7 +68,7 @@ Evidently, \_Chain\_ is better served in a dependency injection context, within 
 Complex services can be created with a \_Chain\_ made of basic \_Links\_, and injected in your controllers, or classes.
 
 In the future, we may build an entire framework with \_Chain\_,
-but we're going to need a much larger \_Link\_ library for that.
+but we're going to need a much larger \_Link\_ library to achieve that.
 ####Inside a \_Link\_
 Here's an example `EXE()` method inside a \_Link\_:
 ```php
@@ -138,7 +138,7 @@ $IO->I_(Type:MULTI); // Returns array('bar', 'baz)
 $IO->I_('MyApp\MyClass'); // Returns the MyApp\MyClass object
 ```
 
-After updating the `I_O` visitor's internal state, the `_O` method returns the visitor itself,
+After updating the `I_O` visitor's internal state, the `_O()` method returns the visitor itself,
 which makes the following shortcut possible:
 ```php
 public function EXE(I_O $IO)
@@ -147,8 +147,8 @@ public function EXE(I_O $IO)
 }
 ```
 
-Of course, PHP passes objects by reference, which makes returning the `I_O` object optional.
-It is the however made a requirement by the \_Link\_ interface for clarity,
+Of course, PHP passes objects by reference, which suggests it's unnecessary to return the `I_O` object in a \_Chain\_ execution.
+However, it is a requirement of the \_Link\_ interface for clarity,
 and to make the following shortcut possible when manipulating a \_Chain\_:
 ```php
 $result = $chain->EXE($IO)
