@@ -7,6 +7,7 @@
  */
 
 namespace _Chain_;
+
 use _Chain_\Exception\TypeException;
 
 /**
@@ -20,10 +21,10 @@ use _Chain_\Exception\TypeException;
 interface Type
 {
     const BOOL = 1;
-    const MULTI = 2;
+    const MULTI = 2; // Array.
     const NULL = 3;
-    const NUMBER = 4;
-    const RESOURCE = 5;
+    const NUMBER = 4; // Integer or float.
+    const RESOURCE = 5; // PHP native resources.
     const STRING = 6;
 
     /**

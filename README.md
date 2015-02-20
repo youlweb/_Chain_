@@ -68,7 +68,7 @@ Here's an example `EXE()` method inside a \_Link\_:
 public function EXE(I_O $IO){
     $numerator = $IO->I_(Type::NUMBER);
     $denominator = $IO->I_(Type::NUMBER);
-    return $IO->_O($IO);
+    return $IO->_O($numerator/$denominator);
 }
 ```
 #####Input
@@ -79,7 +79,7 @@ The arguments requested from the `I_O` visitor must be in the right order, and o
 Requesting an argument that doesn't exist, or that is of the wrong type, triggers an exception.
 
 For this reason, the `I_O` visitor is not iterable.
-A valid type constant must be provided with `I_()` call.
+A valid type constant must be provided with each `I_()` call.
 
 This design effectively enforces type safety, palliating one of PHP's most criticized shortcoming.
 
@@ -92,3 +92,40 @@ $IO->prod(true);
 
 All valid type constants are listed in the [static type class](/src/Type.php).
 
+An I/O contract should be included in the class-level PHP doc block of every \_Link\_, and predefined \_Chain\_:
+```php
+/**
+ * My link.
+ *
+ * Description.
+ *
+ * I/O contract
+ * ------------
+ * <pre>
+ * I    string      Optional description.
+ *      ...         as many inputs as needed.
+ * O    number      Optional description.
+ *      ...         as many outputs as needed.
+ * X    yes/no      Breaks the chain if ...
+ * </pre>
+ */
+class MyLink extends _AbsLink_
+{
+    public function EXE(I_O $IO);
+}
+```
+#####Output
+The output of the `I_O` visitor is set by calling the `_O()` method, with an unlimited amount of arguments.
+
+Calling this method effectively erases the internal memory of the `I_O` visitor,
+replacing it with each value that is passed as an argument to the `_O()` method.
+
+These new values will be returned in the next \_Link\_, with each call to the `I_()` method:
+```php
+$IO->_O('foo', 56, ['bar', 'baz'], $object);
+// In the next link:
+$IO->I_(Type:STRING); // Returns 'foo'
+$IO->I_(Type:NUMBER); // Returns 56
+$IO->I_(Type:MULTI); // Returns array('bar', 'baz)
+$IO->I_('MyApp\MyClass'); // Returns the MyApp\MyClass object
+```
