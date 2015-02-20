@@ -51,7 +51,6 @@ $IO = new IO('   tHis   sTRinG    IS   a meSS!    ');
 ```php
 $chain = new Chain();
 $chain->ADD(new String\_Whitespace_())
-      ->ADD(new String\_Trim_())
       ->ADD(new String\_Lowercase_());
 ```
 #####Excecute
