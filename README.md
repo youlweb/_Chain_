@@ -2,7 +2,7 @@
 ###*\_Chain\_ is freedom.*
 \_Chain\_ is a library designed to optimize linear processing.
 ####In a nutshell
-\_Chain\_ originated from the observation that most modern applications follow a request/response pattern,
+\_Chain\_ originated from the observation that most modern applications follow a linear request->response pattern,
 with RESTful APIs leading the way.  
 \_Chain\_ aims at making such applications easy to code, test, debug, and maintain.
 
@@ -20,9 +20,9 @@ and return it after applying a change to the data stored in its memory.
 
 Think of the `I_O` object as a bag. Upon entering a \_Link\_,
 the content of the `I_O` object is emptied inside the `EXE()` method.
-The method transforms the content, and puts the resulting product in the bag.
+The method uses these ingredients, and puts the resulting product in the bag.
 
-The \_Chain_\ takes care of passing the `I_O` object from one \_Link\_ to the next,
+The \_Chain\_ takes care of passing the `I_O` object from one \_Link\_ to the next,
 unless a \_Link\_ wishes to break the \_Chain\_ by setting its `_X_()` method to return `TRUE`.
 
 At the end of the \_Chain\_, the `I_O` visitor contains the final result.
@@ -71,14 +71,24 @@ public function EXE(I_O $IO){
     return $IO->_O($IO);
 }
 ```
+#####Input
+Input arguments are retrieved using the method `I_($type)`.
+Each time the method is called, the next argument is retrieved.
+
 The arguments requested from the `I_O` visitor must be in the right order, and of the right type.
-Requesting an argument that doesn't exist, or is of the wrong type, triggers an exception.
+Requesting an argument that doesn't exist, or that is of the wrong type, triggers an exception.
+
+For this reason, the `I_O` visitor is not iterable.
+A valid type constant must be provided with `I_()` call.
 
 This design effectively enforces type safety, palliating one of PHP's most criticized shortcoming.
 
-However, in a production environment where a \_Chain\_ has been properly tested,
+However, in a production environment, where a \_Chain\_ has been properly tested,
 type checking can be bypassed for a performance uptick:
 ```php
 $IO = new IO('foo');
 $IO->prod(true);
 ```
+
+All valid type constants are listed in the [static type class](/src/Type.php).
+
