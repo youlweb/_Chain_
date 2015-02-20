@@ -50,9 +50,9 @@ $IO = new IO('   tHis   sTRinG    IS   a meSS!    ');
 #####Create the \_Chain\_
 ```php
 $chain = new Chain();
-$chain->link(new String\_Whitespace_())
-      ->link(new String\_Trim_())
-      ->link(new String\_Lowercase_());
+$chain->ADD(new String\_Whitespace_())
+      ->ADD(new String\_Trim_())
+      ->ADD(new String\_Lowercase_());
 ```
 #####Excecute
 ```php
