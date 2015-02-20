@@ -13,6 +13,9 @@ namespace _Chain_;
  */
 class ChainTest extends \PHPUnit_Framework_TestCase
 {
+    const IO = '_Chain_\I_O';
+    const LINK = '_Chain_\_Link_';
+
     public function testADD()
     {
         $chain = new Chain();
@@ -38,7 +41,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 
     public function testEXE()
     {
-        $IO = $this->mockI_O('mockIO');
+        $IO = $this->mockIO();
         $link_1 = $this->mockLink('lnk1');
         $link_1->expects($this->once())->method('EXE')->with($IO);
         $link_2 = $this->mockLink('lnk2');
@@ -50,7 +53,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 
     public function testEXEBreaks()
     {
-        $IO = $this->mockI_O('mockIO');
+        $IO = $this->mockIO();
         $link_1 = $this->mockLink('lnk1');
         $link_1->expects($this->once())->method('EXE')->with($IO);
         $link_1->expects($this->once())->method('_X_')->willReturn(true);
@@ -92,12 +95,11 @@ class ChainTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string $name
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function mockI_O($name)
+    private function mockIO()
     {
-        return $this->getMock('_Chain_\I_O', [], [], $name);
+        return $this->getMock(self::IO);
     }
 
     /**
@@ -106,6 +108,6 @@ class ChainTest extends \PHPUnit_Framework_TestCase
      */
     private function mockLink($name)
     {
-        return $this->getMock('_Chain_\_Link_', [], [], $name);
+        return $this->getMock(self::LINK, [], [], $name);
     }
 }

@@ -13,9 +13,11 @@ namespace _Chain_;
  */
 class _AbsLink_Test extends \PHPUnit_Framework_TestCase
 {
+    const ABSLINK = '_Chain_\_AbsLink_';
+
     public function test_X_()
     {
-        $link = $this->getMockForAbstractClass('_Chain_\_AbsLink_');
+        $link = $this->getMockForAbstractClass(self::ABSLINK);
         $this->assertFalse($link->_X_());
         $this->assertTrue($link->_X_(true));
     }
