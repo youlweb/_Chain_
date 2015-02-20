@@ -2,7 +2,7 @@
 ###*\_Chain\_ is freedom.*
 \_Chain\_ is a library designed to optimize linear processing.
 ####In a nutshell
-\_Chain\_ originated from the observation that most modern applications follow a linear request->response pattern,
+\_Chain\_ originated from the observation that most modern applications follow a linear request/response pattern,
 with RESTful APIs leading the way.  
 \_Chain\_ aims at making such applications easy to code, test, debug, and maintain.
 
@@ -34,7 +34,7 @@ Let's create a simple \_Chain\_ destined to format a string.
 ```shell
 $ composer require chain/core
 ```
-#####Import string library
+#####Import the string library
 ```shell
 $ composer require chain/string
 ```
@@ -62,9 +62,17 @@ $chain->EXE($IO);
 ```php
 $result = $IO->I_(Type::STRING); // $result = 'this string is a mess!'
 ```
+####Dependency injection
+Evidently, \_Chain\_ is better served in a dependency injection context, within Symfony for instance.
+
+Complex services can be created with a \_Chain\_ made of basic \_Links\_, and injected in your controllers, or classes.
+
+In the future, we may build an entire framework with \_Chain\_,
+but we're going to need a much larger \_Link\_ library for that.
 ####Inside a \_Link\_
 Here's an example `EXE()` method inside a \_Link\_:
 ```php
+// Division
 public function EXE(I_O $IO){
     $numerator = $IO->I_(Type::NUMBER);
     $denominator = $IO->I_(Type::NUMBER);
@@ -92,7 +100,7 @@ $IO->prod(true);
 
 All valid type constants are listed in the [static type class](/src/Type.php).
 
-An I/O contract should be included in the class-level PHP doc block of every \_Link\_, and predefined \_Chain\_:
+An I/O contract should be included in the class-level PHP doc block of every \_Link\_:
 ```php
 /**
  * My link.
@@ -118,7 +126,7 @@ class MyLink extends _AbsLink_
 The output of the `I_O` visitor is set by calling the `_O()` method, with an unlimited amount of arguments.
 
 Calling this method effectively erases the internal memory of the `I_O` visitor,
-replacing it with each value that is passed as an argument to the `_O()` method.
+replacing it with each value that is passed as an argument of the `_O()` method.
 
 These new values will be returned in the next \_Link\_, with each call to the `I_()` method:
 ```php
@@ -128,4 +136,21 @@ $IO->I_(Type:STRING); // Returns 'foo'
 $IO->I_(Type:NUMBER); // Returns 56
 $IO->I_(Type:MULTI); // Returns array('bar', 'baz)
 $IO->I_('MyApp\MyClass'); // Returns the MyApp\MyClass object
+```
+
+After updating the `I_O` visitor's internal state, the `_O` method returns the visitor itself,
+which makes the following shortcut possible:
+```php
+public function EXE(I_O $IO)
+{
+    return $IO->_O('foo');
+}
+```
+
+Of course, PHP passes objects by reference, which makes returning the `I_O` object optional.
+It is the however made a requirement by the \_Link\_ interface for clarity,
+and to make the following shortcut possible when manipulating a \_Chain\_:
+```php
+$result = $chain->EXE($IO)
+                ->I_(Type:STRING);
 ```
