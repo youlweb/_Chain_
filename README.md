@@ -6,7 +6,7 @@
 with RESTful APIs leading the way.  
 \_Chain\_ aims at making such applications easy to code, test, debug, and maintain.
 
-In the \_Chain\_ environment, each step of your program is a \_Link\_.
+In the \_Chain\_ environment, each step of a program is a \_Link\_.
 A \_Link\_ is a class with a single `EXE()` function, designed to accomplish a single task.
 
 In the spirit of functional programming, the goal is to reuse as much code as possible,
@@ -26,3 +26,38 @@ The \_Chain_\ takes care of passing the `I_O` object from one \_Link\_ to the ne
 unless a \_Link\_ wishes to break the \_Chain\_ by setting its `_X_()` method to return `TRUE`.
 
 At the end of the \_Chain\_, the `I_O` visitor contains the final result.
+
+####Example
+Let's create a simple \_Chain\_ destined to format a string.
+
+#####Install
+```shell
+composer require chain/core
+```
+#####Import string library
+```shell
+composer require chain/string
+```
+
+*Of course, installing `chain/string` directly would have imported `chain/core` automatically.
+The extra step was added for clarity.*
+
+#####Create an I_O object
+```php
+$IO = new IO('   tHis   sTRinG    IS   a meSS!    ');
+```
+#####Create the \_Chain\_
+```php
+$chain = new Chain();
+$chain->link(new \_Chain_\String\_Whitespace_())
+      ->link(new \_Chain_\String\_Trim_())
+      ->link(new \_Chain_\String\_Lowercase_());
+```
+#####Excecute
+```php
+$chain->EXE($IO);
+```
+#####Result
+```php
+$result = $IO->I_(Type::STRING); // $result = 'this string is a mess!'
+```
