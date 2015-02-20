@@ -100,10 +100,10 @@ $IO->prod(true);
 
 All valid type constants are listed in the [static type class](/src/Type.php).
 
-An I/O contract should be included in the class-level PHP doc block of every \_Link\_:
+An I/O contract should be included in the PHP doc of every \_Link\_'s `EXE()` method:
 ```php
 /**
- * My link.
+ * Method action.
  *
  * Description.
  *
@@ -117,10 +117,7 @@ An I/O contract should be included in the class-level PHP doc block of every \_L
  * X    yes/no      Breaks the chain if ...
  * </pre>
  */
-class MyLink extends _AbsLink_
-{
-    public function EXE(I_O $IO);
-}
+public function EXE(I_O $IO);
 ```
 #####Output
 The output of the `I_O` visitor is set by calling the `_O()` method, with an unlimited amount of arguments.

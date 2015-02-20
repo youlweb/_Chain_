@@ -14,20 +14,25 @@ use _Chain_\Type;
 /**
  * Applies the XOR operator to a couple of booleans.
  *
- * I/O contract
- * ------------
- * <pre>
- * I    bool
- * I    bool
- * O    bool        Result of the XOR operation.
- * X    no
- * </pre>
- *
  * @author Julien Tord <youlweb@hotmail.com>
  */
 class _XOR_ extends _AbsLink_
 {
-    /** {@inheritDoc} */
+    /**
+     * Applies the XOR operator to a couple of booleans.
+     *
+     * I/O contract
+     * ------------
+     * <pre>
+     * I    bool
+     * I    bool
+     * O    bool        Result of the XOR operation.
+     * X    no
+     * </pre>
+     *
+     * @param I_O $IO
+     * @return I_O
+     */
     public function EXE(I_O $IO)
     {
         return $IO->_O(

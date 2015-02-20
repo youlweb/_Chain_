@@ -16,20 +16,25 @@ use _Chain_\Type;
 /**
  * Applies the NOT operator to the input values.
  *
- * I/O contract
- * ------------
- * <pre>
- * I    bool
- * ...  bool
- * O    bool        Result of the NOT operation.
- * X    no
- * </pre>
- *
  * @author Julien <youlweb@hotmail.com>
  */
 class _NOT_ extends _AbsLink_
 {
-    /** {@inheritDoc} */
+    /**
+     * Applies the NOT operator to the input values.
+     *
+     * I/O contract
+     * ------------
+     * <pre>
+     * I    bool
+     * ...  bool
+     * O    bool        Result of the NOT operation.
+     * X    no
+     * </pre>
+     *
+     * @param I_O $IO
+     * @return I_O
+     */
     public function EXE(I_O $IO)
     {
         while (true) {

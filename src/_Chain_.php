@@ -10,7 +10,7 @@ namespace _Chain_;
 use Iterator;
 
 /**
- * A chain is a composite collection of links.
+ * A chain is an iterable composite collection of links.
  *
  * An Input/Output visitor is passed through each link to update its state.
  * A chain is also a link, allowing it to be inserted in other chains.

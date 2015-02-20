@@ -9,20 +9,7 @@
 namespace _Chain_;
 
 /**
- * Link interface.
- *
- * Updates a visiting Input/Output object via an operation. Below is a template
- * for the Input/Output contract that should be included with every link.
- *
- * I/O contract
- * ------------
- * <pre>
- * I    string      Optional description.
- *      ...         as many inputs as needed.
- * O    number      Optional description.
- *      ...         as many outputs as needed.
- * X    yes/no      Breaks the chain if ...
- * </pre>
+ * A link updates a visiting Input/Output object via an EXE() operation.
  *
  * @author Julien <youlweb@hotmail.com>
  */
@@ -40,6 +27,19 @@ interface _Link_
 
     /**
      * Performs an operation on a visiting I/O object.
+     *
+     * Below is a template for the Input/Output contract that should be
+     * present in the PHP doc of every link's EXE() method.
+     *
+     * I/O contract
+     * ------------
+     * <pre>
+     * I    string      Optional description.
+     *      ...         as many inputs as needed.
+     * O    number      Optional description.
+     *      ...         as many outputs as needed.
+     * X    yes/no      Breaks the chain if ...
+     * </pre>
      *
      * @param I_O $IO
      * @param I_O $IO ... More I/O visitors.
