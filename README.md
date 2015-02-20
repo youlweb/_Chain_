@@ -32,11 +32,11 @@ Let's create a simple \_Chain\_ destined to format a string.
 
 #####Install
 ```shell
-composer require chain/core
+$ composer require chain/core
 ```
 #####Import string library
 ```shell
-composer require chain/string
+$ composer require chain/string
 ```
 
 *Of course, installing `chain/string` directly would have imported `chain/core` automatically.
@@ -44,14 +44,15 @@ The extra step was added for clarity.*
 
 #####Create an I_O object
 ```php
+// This example assumes we're in the _Chain_ namespace for clarity.
 $IO = new IO('   tHis   sTRinG    IS   a meSS!    ');
 ```
 #####Create the \_Chain\_
 ```php
 $chain = new Chain();
-$chain->link(new \_Chain_\String\_Whitespace_())
-      ->link(new \_Chain_\String\_Trim_())
-      ->link(new \_Chain_\String\_Lowercase_());
+$chain->link(new String\_Whitespace_())
+      ->link(new String\_Trim_())
+      ->link(new String\_Lowercase_());
 ```
 #####Excecute
 ```php
@@ -60,4 +61,24 @@ $chain->EXE($IO);
 #####Result
 ```php
 $result = $IO->I_(Type::STRING); // $result = 'this string is a mess!'
+```
+####Inside a \_Link\_
+Here's an example `EXE()` method inside a \_Link\_:
+```php
+public function EXE(I_O $IO){
+    $numerator = $IO->I_(Type::NUMBER);
+    $denominator = $IO->I_(Type::NUMBER);
+    return $IO->_O($IO);
+}
+```
+The arguments requested from the `I_O` visitor must be in the right order, and of the right type.
+Requesting an argument that doesn't exist, or is of the wrong type, triggers an exception.
+
+This design effectively enforces type safety, palliating one of PHP's most criticized shortcoming.
+
+However, in a production environment where a \_Chain\_ has been properly tested,
+type checking can be bypassed for a performance uptick:
+```php
+$IO = new IO('foo');
+$IO->prod(true);
 ```
