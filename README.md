@@ -154,3 +154,10 @@ and to make the following shortcut possible when manipulating a \_Chain\_:
 $result = $chain->EXE($IO)
                 ->I_(Type:STRING);
 ```
+####In an ideal world
+If we imagine a \_Link\_ library that is large enough to cover most application needs,
+we could easily port the entire library in many languages, including assembly,
+and make it possible to design an application in a language agnostic manner, using a graphical interface.
+
+Such solutions will be widely used in the future,
+to address the current explosion of programming languages.
