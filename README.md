@@ -70,7 +70,7 @@ Evidently, \_Chain\_ is better served in a dependency injection context, within 
 Complex services can be created with a \_Chain\_ made of basic \_Links\_, and injected in your controllers, or classes.
 
 In the future, we may build an entire framework with \_Chain\_,
-but we're going to need a much larger \_Link\_ library to achieve that.
+but we're going to need a much larger \_Link\_ library to achieve this goal.
 ####Inside a \_Link\_
 Here's an example `EXE()` method inside a \_Link\_:
 ```php
