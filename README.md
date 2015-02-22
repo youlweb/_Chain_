@@ -16,7 +16,7 @@ In true composite fashion, a \_Chain\_ is also a \_Link\_, which makes it easy t
 
 ####The I_O visitor
 ![Schema](/img/schema.png)  
-_The `I_O` visitor acts like a signal running through the \_Chain\_._
+*The `I_O` visitor acts like a signal running through the \_Chain\_.*
 
 To achieve this goal, a \_Link\_'s `EXE()` method is set to receive an Input/Output, or `I_O` visitor,
 and return it after applying a change to the data stored in its memory.
