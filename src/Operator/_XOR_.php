@@ -14,7 +14,7 @@ use _Chain_\Type;
 /**
  * Applies the XOR operator to a couple of booleans.
  *
- * @author Julien Tord <youlweb@hotmail.com>
+ * @author Julien <youlweb@hotmail.com>
  */
 class _XOR_ extends _AbsLink_
 {

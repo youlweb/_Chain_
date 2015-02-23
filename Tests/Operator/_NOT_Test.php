@@ -7,6 +7,7 @@
  */
 
 namespace _Chain_\Operator;
+
 use _Chain_\IO;
 use _Chain_\Type;
 
