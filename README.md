@@ -18,7 +18,7 @@ In true composite fashion, a \_Chain\_ is also a \_Link\_, which makes it easy t
 ![Schema](/img/schema.png)  
 *The `I_O` visitor acts like a signal running through the \_Chain\_.*
 
-To achieve this goal, a \_Link\_'s `EXE()` method is set to receive an Input/Output, or `I_O` visitor,
+To achieve this goal, a \_Link\_'s `EXE()` method is set to receive an Input/Output visitor, or `I_O` visitor,
 and return it after applying a change to the data stored in its memory.
 
 Think of the `I_O` object as a bag. Upon entering a \_Link\_,
@@ -82,19 +82,21 @@ public function EXE(I_O $IO){
 }
 ```
 #####Input
-Input arguments are retrieved using the method `I_($type)`.
-Each time the method is called, the next argument is retrieved.
+Input variables are retrieved using the method `I_($type, $optional=false)`.
+Each time the method is called, the next variable is retrieved.
 
-The arguments requested from the `I_O` visitor must be in the right order, and of the right type.
-Requesting an argument that doesn't exist, or that is of the wrong type, triggers an exception.
+The variables requested from the `I_O` visitor must be in the right order, and of the right type.
+Requesting a variable that doesn't exist, or that is of the wrong type, triggers an exception.
 
 For this reason, the `I_O` visitor is not iterable.
-A valid type constant must be provided with each `I_()` call.
+A valid type constant or class FQCN must be provided with each `I_()` call.
+
+A second boolean argument can be provided when calling `I_()` to indicate that the requested `I_O` variable is optional.
 
 This design effectively enforces type safety, palliating one of PHP's most criticized shortcoming.
 
 However, in a production environment, where a \_Chain\_ has been properly tested,
-type checking can be bypassed for a performance uptick:
+the internal type checking can be bypassed for a performance uptick:
 ```php
 $IO = new IO('foo');
 $IO->prod(true);
